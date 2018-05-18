@@ -6,17 +6,20 @@ export default class Boot extends Phaser.Scene {
     this.fontReady = false
   }
   preload () {
+    console.log('preload')
     WebfontLoader.load({
       custom: {
-        families: ['font1'],
-        urls: ['./assets/font/font1.ttf'],
+        families: ['Font1'],
       },
-      active: () => (this.fontReady = true),
+      active: () => {
+        this.fontReady = true
+      },
     })
   }
-  create () {
-    if (this.fontReady) {
-      this.scene.start()
-    }
+  update () {
+    console.log('update')
+    // if (this.fontReady) {
+    //   this.scene.start('GameScene')
+    // }
   }
 }

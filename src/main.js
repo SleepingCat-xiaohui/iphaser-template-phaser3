@@ -1,5 +1,6 @@
 import Phaser from 'phaser'
-import BootScene from './scenes/Boot'
+import BootScene from './scenes/boot'
+import GameScene from './scenes/game'
 
 class Game extends Phaser.Game {
   constructor () {
@@ -8,8 +9,11 @@ class Game extends Phaser.Game {
       height: 480,
       type: Phaser.CANVAS,
       parent: 'game',
-      scene: BootScene,
+      backgroundColor: '#cccccc',
     })
+
+    this.scene.add('BootScene', BootScene, true)
+    this.scene.add('GameScene', GameScene)
   }
 }
 
