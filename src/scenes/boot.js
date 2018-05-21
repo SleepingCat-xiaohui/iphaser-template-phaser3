@@ -1,25 +1,25 @@
 import Phaser from 'phaser'
-import WebfontLoader from 'webfontloader'
 
 export default class Boot extends Phaser.Scene {
-  init () {
-    this.fontReady = false
-  }
   preload () {
-    console.log('preload')
-    WebfontLoader.load({
-      custom: {
-        families: ['Font1'],
-      },
-      active: () => {
-        this.fontReady = true
-      },
+    this.load.spritesheet('pet', './assets/test.png', {
+      frameWidth: 34,
+      frameHeight: 68,
     })
   }
-  update () {
-    console.log('update')
-    // if (this.fontReady) {
-    //   this.scene.start('GameScene')
-    // }
+
+  create () {
+    this.anims.create({
+      key: 'jump',
+      frames: this.anims.generateFrameNames('pet'),
+      repeat: -1,
+      frameRate: 10,
+    })
+
+    this.add.sprite(300, 160, 'pet').play('jump')
+
+    this.add.text(300, 200, `Hello World`, {
+      color: '#fff000',
+    }).setOrigin(0.5)
   }
 }
