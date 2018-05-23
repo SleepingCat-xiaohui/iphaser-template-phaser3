@@ -19,6 +19,8 @@ export default class Boot extends Phaser.Scene {
     this.add.sprite(300, 160, 'pet').play('jump')
 
     this.add.text(300, 200, `Hello World`, {
+      fontFamily: 'Courier',
+      fontSize: '20px',
       color: '#fff000',
     }).setOrigin(0.5)
   }
